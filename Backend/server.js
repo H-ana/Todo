@@ -2,9 +2,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express();
+const path = require('path');
 
 app.use(express.json());
 app.use(cors());
+
+app.use(express.static(path.join(__dirname, '..','frontend', 'build')));
 
 mongoose.connect('mongodb+srv://hanashelbin:T7Izt7PNSKyor4OL@cluster0.m2eupyp.mongodb.net/tutorial?retryWrites=true&w=majority&appName=Cluster0', {
     useNewUrlParser: true,
